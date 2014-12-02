@@ -1,8 +1,8 @@
 #include <stdio.h>
 
-#include "unittest.h"
-#include "logging.h"
-#include "strop.h"
+#include "unittest.hpp"
+#include "logging.hpp"
+#include "strop.hpp"
 
 namespace base {
 

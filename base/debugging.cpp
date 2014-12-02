@@ -6,8 +6,8 @@
 #include <vector>
 #include <utility>
 
-#include "debugging.h"
-#include "misc.h"
+#include "debugging.hpp"
+#include "misc.hpp"
 
 using namespace std;
 

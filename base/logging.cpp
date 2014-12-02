@@ -4,9 +4,9 @@
 #include <sys/time.h>
 #include <pthread.h>
 
-#include "misc.h"
-#include "threading.h"
-#include "logging.h"
+#include "misc.hpp"
+#include "threading.hpp"
+#include "logging.hpp"
 
 namespace {
 

@@ -1,8 +1,8 @@
 #include <functional>
 #include <sys/time.h>
 
-#include "misc.h"
-#include "threading.h"
+#include "misc.hpp"
+#include "threading.hpp"
 
 using namespace std;
 

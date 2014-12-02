@@ -4,8 +4,8 @@
 #include <functional>
 #include <pthread.h>
 
-#include "basetypes.h"
-#include "misc.h"
+#include "basetypes.hpp"
+#include "misc.hpp"
 
 #define Pthread_spin_init(l, pshared) verify(pthread_spin_init(l, (pshared)) == 0)
 #define Pthread_spin_lock(l) verify(pthread_spin_lock(l) == 0)

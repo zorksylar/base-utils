@@ -5,8 +5,8 @@
 #include <random>
 #include <inttypes.h>
 
-#include "debugging.h"
-#include "base/logging.h"
+#include "debugging.hpp"
+#include "base/logging.hpp"
 
 namespace base {
 

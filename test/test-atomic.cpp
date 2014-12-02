@@ -1,6 +1,6 @@
 #include <atomic>
 
-#include "base/all.h"
+#include "base/all.hpp"
 
 using namespace base;
 using namespace std;

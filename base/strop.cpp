@@ -2,7 +2,7 @@
 #include <sstream>
 #include <string.h>
 
-#include "strop.h"
+#include "strop.hpp"
 
 namespace base {
 
