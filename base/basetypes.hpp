@@ -151,7 +151,7 @@ public:
 };
 
 // keep min-ordering
-template<class T, class Compare = std::greater<T>>
+template<class T, class Compare = std::greater<T> >
 class MergedEnumerator: public Enumerator<T> {
     struct merge_helper {
         T data;
@@ -164,7 +164,7 @@ class MergedEnumerator: public Enumerator<T> {
         }
     };
 
-    std::priority_queue<merge_helper, std::vector<merge_helper>> q_;
+    std::priority_queue<merge_helper, std::vector<merge_helper> > q_;
 
 public:
     void add_source(Enumerator<T>* src) {

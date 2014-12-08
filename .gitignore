@@ -9,3 +9,5 @@
 *.sublime*
 *.swp
 *.prof
+
+cscope.out
