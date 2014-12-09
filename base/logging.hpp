@@ -4,8 +4,8 @@
 #include <stdarg.h>
 #include <sstream>
 
-#include "base/misc.hpp"
-#include "base/debugging.hpp"
+#include "misc.hpp"
+#include "debugging.hpp"
 
 #define LOG_VERBOSE(verbosity) base::LogManager_INFO.new_log(__FILE__, __LINE__, verbosity)
 #define LOG_INFO base::LogManager_INFO.new_log(__FILE__, __LINE__, 0)

@@ -6,7 +6,7 @@
 #include <inttypes.h>
 
 #include "debugging.hpp"
-#include "base/logging.hpp"
+#include "logging.hpp"
 
 namespace base {
 
