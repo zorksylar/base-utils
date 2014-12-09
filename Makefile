@@ -13,10 +13,14 @@ else
 endif
 
 #cxx
-CXXFLAGS?= -O3 -DNDEBUG -Wall -Wno-unused-function 
-CXXFLAGS += -std=c++11 -stdlib=libc++
+CXXFLAGS?= -O3 -DNDEBUG -Wall -Wno-unused-function
 LDFLAGS?= 
+CXX11FLAGS?= -std=c++11 
+ifeq ($(OS), Darwin)
+	CXX11FLAGS += -stdlib=libc++	
+endif
 
+CXXFLAGS+= $(CXX11FLAGS)
 #env
 EXTRA_INCLUDES=-I.
 SYSLIBS=-lpthread
@@ -44,14 +48,14 @@ MKDIR_OBJ :
 
 $(OBJ_FILES) : $(OBJ_DIR)/%.o : $(SRC_DIR)/%.cpp | MKDIR_OBJ
 	$(CXX) $(CXXFLAGS) $(EXTRA_INCLUDES) -c -o $@ $<
-	$(CXX) -MM -MT '$(OBJ_DIR)/$*.o' $< > $(@:.o=.d)
+	$(CXX) $(CXX11FLAGS) -MM -MT  '$(OBJ_DIR)/$*.o' $< > $(@:.o=.d)
 
 $(OUT_LIBA) : $(OBJ_FILES) 
 	ar rcs $@ $^
 
 $(TST_OBJS) : $(OBJ_DIR)/%.o : $(TST_DIR)/%.cpp | MKDIR_OBJ
 	$(CXX) $(CXXFLAGS) $(EXTRA_INCLUDES) -c -o $@ $<
-	$(CXX) $(EXTRA_INCLUDES) -MM -MT '$(OBJ_DIR)/$*.o' $< > $(@:.o=.d)
+	$(CXX) $(CXX11FLAGS) $(EXTRA_INCLUDES) -MM -MT '$(OBJ_DIR)/$*.o' $< > $(@:.o=.d)
 
 $(OUT_BIN) : $(TST_OBJS) $(OUT_LIBA)
 	$(CXX) $(CXXFLAGS) $(EXTRA_INCLUDES) -o $@ $(TST_OBJS) $(OUT_LIBA) $(EXTRA_LIBS) $(SYSLIBS) $(LDFLAGS)
