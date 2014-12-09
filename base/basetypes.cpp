@@ -255,6 +255,17 @@ double Timer::elapsed() const {
     return end_.tv_sec - begin_.tv_sec + (end_.tv_usec - begin_.tv_usec) / 1000000.0;
 }
 
+double Timer::elapsed_usec() const {
+    verify(begin_.tv_sec != 0 || begin_.tv_usec != 0);
+    if (end_.tv_sec == 0 && end_.tv_usec == 0) {
+        // not stopped yet
+        struct timeval now;
+        gettimeofday(&now, nullptr);
+        return (now.tv_sec - begin_.tv_sec) * 1000000.0 + now.tv_usec - begin_.tv_usec;
+    }
+    return (end_.tv_sec - begin_.tv_sec) * 1000000.0 + end_.tv_usec - begin_.tv_usec ;
+}
+
 Rand::Rand() {
     struct timeval now;
     gettimeofday(&now, nullptr);

@@ -115,6 +115,7 @@ public:
     void stop();
     void reset();
     double elapsed() const;
+    double elapsed_usec() const;
 private:
     struct timeval begin_;
     struct timeval end_;
